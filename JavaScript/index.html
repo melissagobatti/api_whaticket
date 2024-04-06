@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Whaticket </title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body           
+            ,
+        h1 {
+            font-family: "Montserrat", sans-serif
+        }
+
+        img {
+            margin-bottom: -7px
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }   
+
+        /* Style the search field */
+        .example input[type=number] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 100%;
+            background: #f1f1f1;
+        }             
+    </style>         
+</head>
+<body>
+    <br>
+    <h1> Enviar Mensagem Whaticket </h1>
+    <br>
+    <div class="row">                
+        <div class="col-md-12">
+            <form class="example">
+                <input placeholder="Digite Celular" name="number" id="number">                     
+            </form>  
+        </div>             
+    </div>
+    <br>
+    <div class="row">              
+        <div class="col-md-12">
+            <form class="example">
+                <textarea id="message" name="message" rows="5" cols="21">digite a mensagem a ser enviada...</textarea>                    
+            </form>  
+        </div>                      
+    </div>  
+    <br>
+    <div class="row">              
+        <div class="col-md-12">
+            <form class="example" >
+                <label for="file"></label>
+                <input type="file" name="file" id="file">                     
+            </form>  
+        </div>                      
+    </div>      
+    <br>  
+    <div class="row">
+        <div class="col-md-12">
+             
+              <button class="btn btn-dark btn" id="BTENVIAR" onclick="enviamsg()"> 
+                  <i class="fa fa-search"></i>
+                  <span class="typcn typcn-business-card">Enviar Mensagem</span>
+              </button>
+         
+          </div> 
+    </div> 
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+             
+              <button class="btn btn-dark btn" id="BTENVIARFILE" onclick="enviarfile()"> 
+                  <i class="fa fa-search"></i>
+                  <span class="typcn typcn-business-card">Enviar Arquivo</span>
+              </button>
+         
+          </div> 
+    </div> 
+
+    <script>
+        function enviamsg(){
+            // WARNING: For POST requests, body is set to null by browsers.
+            let body = JSON.stringify({
+                "number": "5511917625637",
+                "body": "Teste envio API"
+            });
+
+            let xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function() {
+            if(this.readyState === 4) {
+                console.log(this.responseText);
+            }
+            });
+
+            xhr.open("post", "https://api.siwhaticket.com.br/api/messages/send", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Authorization", "Bearer f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00");
+
+            xhr.send(body);
+        }                                                                                                       
+    </script>
+ 
+   <script>
+    function enviarfile(){
+        // WARNING: For POST requests, body is set to null by browsers.
+        let body = new FormData();
+        body.append("number", "551191725637");
+        body.append("medias", document.querySelector("#file").files[0]);
+        
+        let xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+        });
+
+        xhr.open("POST", "https://api.siwhaticket.com.br/api/messages/send");
+        xhr.setRequestHeader("Authorization", "Bearer f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00");
+
+        xhr.send(body);
+    }
+   </script>
+
+</body>
+</html>
