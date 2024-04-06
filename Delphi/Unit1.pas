@@ -8,14 +8,14 @@ uses
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdSSLOpenSSL,
   IdAntiFreezeBase, IdAntiFreeze;
 
-Const URL = 'https://api.siwhaticket.com.br/api/messages/send';
-Const Token = 'f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00';
+Const URL = '';
+Const Token = '';
 
 type
   TForm1 = class(TForm)
     edtNumber: TEdit;
     memoMessage: TMemo;
-    Número: TLabel;
+    NÃºmero: TLabel;
     Mensagem: TLabel;
     btEnviaMSG: TButton;
     edtFile: TEdit;
