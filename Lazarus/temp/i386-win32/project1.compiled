@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\fpcupdeluxe\lazarus\fpc\bin\i386-win32\fpc.exe" Date="1430015047"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -WG -l -vewnhibq -FiC:\Projetos\Demo_whaticket\temp\i386-win32 -FuC:\fpcupdeluxe\lazarus\config_lazarus\onlinepackagemanager\packages\Indy10\lib\i386-win32 -FuC:\fpcupdeluxe\lazarus\lazarus\components\ideintf\units\i386-win32\win32 -FuC:\fpcupdeluxe\lazarus\lazarus\components\lazcontrols\lib\i386-win32\win32 -FuC:\fpcupdeluxe\lazarus\lazarus\lcl\units\i386-win32\win32 -FuC:\fpcupdeluxe\lazarus\lazarus\lcl\units\i386-win32 -FuC:\fpcupdeluxe\lazarus\lazarus\components\freetype\lib\i386-win32 -FuC:\fpcupdeluxe\lazarus\lazarus\components\buildintf\units\i386-win32 -FuC:\fpcupdeluxe\lazarus\lazarus\components\lazutils\lib\i386-win32 -FuC:\fpcupdeluxe\lazarus\lazarus\packager\units\i386-win32 -FuC:\Projetos\Demo_whaticket\ -FUC:\Projetos\Demo_whaticket\temp\i386-win32\ -FEC:\Projetos\Demo_whaticket\lib\ -oC:\Projetos\Demo_whaticket\lib\demo_whaticket.exe -dLCL -dLCLwin32 project1.lpr"/>
+</CONFIG>
