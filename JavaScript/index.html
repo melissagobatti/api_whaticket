@@ -105,9 +105,9 @@
             }
             });
 
-            xhr.open("post", "https://api.siwhaticket.com.br/api/messages/send", true);
+            xhr.open("post", "", true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("Authorization", "Bearer f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00");
+            xhr.setRequestHeader("Authorization", "Bearer ");
 
             xhr.send(body);
         }                                                                                                       
@@ -129,8 +129,8 @@
         }
         });
 
-        xhr.open("POST", "https://api.siwhaticket.com.br/api/messages/send");
-        xhr.setRequestHeader("Authorization", "Bearer f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00");
+        xhr.open("POST", "");
+        xhr.setRequestHeader("Authorization", "Bearer ");
 
         xhr.send(body);
     }
