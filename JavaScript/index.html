@@ -92,7 +92,7 @@
         function enviamsg(){
             // WARNING: For POST requests, body is set to null by browsers.
             let body = JSON.stringify({
-                "number": "5511917625637",
+                "number": "",
                 "body": "Teste envio API"
             });
 
@@ -117,7 +117,7 @@
     function enviarfile(){
         // WARNING: For POST requests, body is set to null by browsers.
         let body = new FormData();
-        body.append("number", "551191725637");
+        body.append("number", "");
         body.append("medias", document.querySelector("#file").files[0]);
         
         let xhr = new XMLHttpRequest();
