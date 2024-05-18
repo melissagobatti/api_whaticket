@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "267bc019-8e92-44d6-8fa7-35496f66f68c",
+		"name": "Whaticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12677489"
+	},
+	"item": [
+		{
+			"name": "Message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "f00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"number\": \"5511999999999\", \r\n    \"body\": \"Teste envio API\\n\\nteste\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://",
+					"protocol": "https"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Media",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "ef5b62c1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number",
+							"value": "551199999999",
+							"type": "text"
+						},
+						{
+							"key": "medias",
+							"type": "file",
+							"src": "/C:/Users/melis/Downloads/boleto.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://",
+					"protocol": "https"
+				}
+			},
+			"response": []
+		}
+	]
+}
