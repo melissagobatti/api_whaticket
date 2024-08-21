@@ -1,0 +1,60 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    edtNumero: TLabeledEdit;
+    memoMSG: TMemo;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+  Const
+    FURL = 'https://api.siwhaticket.com.br/api/messages/send';
+    FToken = 'f7d2f4c2-d7d5-40b0-bbae-d5727bf6af00';
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses Jsons, RESTRequest4D;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+ lJson: TJson;
+ lRes: IResponse;
+begin
+  // Envia MSG
+  lJson := TJson.Create;
+  try
+    lJson.Put('number', '55'+edtNumero.Text);
+    lJson.Put('body', memoMSG.Lines.Text);
+
+    lRes := TRequest.New
+                    .BaseURL(FURL)
+                    //.AddHeader('Authorization', 'Bearer '+FToken)
+                    .TokenBearer(FToken)
+                    .ContentType('application/json')
+                    .AddBody(lJson.Stringify)
+                    .Post;
+
+     ShowMessage(lRes.Content);
+
+  finally
+     lJson.Free;
+  end;
+end;
+
+end.
